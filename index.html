@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Egypt - Business Class</title>
+    <title>Explore Egypt - Professional Travel</title>
     <style>
         /* General Styles */
         body {
             margin: 0;
-            font-family: 'Roboto', sans-serif;
-            color: #333;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Dark background for contrast */
+            color: #f0f0f0; /* Light text for readability */
         }
 
         /* Navbar */
@@ -19,14 +19,14 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(90deg, #4a5568, #718096);
-            color: white;
+            background: #1e1e1e; /* Dark gray */
+            color: #f0f0f0;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
             z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
         nav ul {
             list-style: none;
@@ -35,13 +35,13 @@
             margin: 0;
         }
         nav ul li a {
-            color: #e2e8f0;
+            color: #f0a500; /* Golden accent for contrast */
             font-weight: bold;
             text-decoration: none;
             transition: color 0.3s;
         }
         nav ul li a:hover {
-            color: #a0aec0;
+            color: #ffd700; /* Brighter golden hover effect */
         }
 
         /* Header Section */
@@ -53,12 +53,12 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: white;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         header h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
         }
         header p {
             font-size: 1.2rem;
@@ -72,25 +72,25 @@
             text-align: center;
         }
         section h2 {
-            color: #2d3748;
+            color: #f0a500; /* Golden section headers */
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
         }
 
-        /* Metallic Button */
+        /* Button Styles */
         .btn {
             display: inline-block;
             padding: 0.75rem 1.5rem;
             margin: 1rem 0;
-            color: white;
-            background: linear-gradient(90deg, #4a5568, #2d3748);
+            color: #ffffff;
+            background: #f0a500; /* Golden button */
             text-decoration: none;
             border-radius: 5px;
-            transition: background 0.3s ease, transform 0.2s;
             font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s;
         }
         .btn:hover {
-            background: linear-gradient(90deg, #2d3748, #1a202c);
+            background: #ffd700; /* Brighter hover effect */
             transform: scale(1.05);
         }
 
@@ -106,7 +106,7 @@
             position: relative;
             overflow: hidden;
             border-radius: 10px;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
             transition: transform 0.3s;
         }
         .gallery-item img {
@@ -119,17 +119,17 @@
 
         /* Contact Section */
         #contact {
-            background: linear-gradient(90deg, #718096, #4a5568);
-            color: white;
+            background: #1e1e1e; /* Dark background for contact form */
+            color: #f0f0f0;
             padding: 4rem 2rem;
         }
         #contact form {
             max-width: 600px;
             margin: 0 auto;
-            background: #2d3748;
+            background: #292929; /* Slightly lighter form background */
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
         }
         #contact input, #contact textarea {
             width: 100%;
@@ -137,21 +137,21 @@
             margin-bottom: 1rem;
             border: none;
             border-radius: 5px;
-            background: #1a202c;
-            color: white;
+            background: #1e1e1e; /* Match navbar and general dark theme */
+            color: #f0f0f0;
             font-size: 1rem;
         }
         #contact input::placeholder, #contact textarea::placeholder {
-            color: #a0aec0;
+            color: #a0a0a0; /* Placeholder text */
         }
         #contact input[type="submit"] {
-            background-color: #4a5568;
+            background-color: #f0a500; /* Golden button for form */
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
         #contact input[type="submit"]:hover {
-            background-color: #2d3748;
+            background-color: #ffd700;
         }
 
         /* Responsive Design */
@@ -168,7 +168,7 @@
 <body>
     <!-- Navbar -->
     <nav>
-        <div>Egypt Luxury Travel</div>
+        <div>Egypt Business Travel</div>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#gallery">Gallery</a></li>
@@ -178,15 +178,15 @@
 
     <!-- Header -->
     <header>
-        <h1>Discover Egypt in Style</h1>
-        <p>Unveil the history, beauty, and culture of this incredible land through a premium travel experience.</p>
+        <h1>Premium Egypt Travel</h1>
+        <p>Experience Egypt's timeless beauty with an exclusive, curated travel journey.</p>
     </header>
 
     <!-- About Section -->
     <section id="about">
         <h2>About Egypt</h2>
-        <p>Egypt offers a unique blend of ancient wonders and modern luxury. Enjoy the Pyramids, Nile cruises, and exclusive desert experiences.</p>
-        <a href="#contact" class="btn">Book Your Trip Now</a>
+        <p>Egypt combines ancient history with modern luxury. Discover the Pyramids, cruise the Nile, and explore the desert with top-tier experiences.</p>
+        <a href="#contact" class="btn">Plan Your Trip</a>
     </section>
 
     <!-- Gallery Section -->
@@ -194,16 +194,16 @@
         <h2>Photo Gallery</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="https://source.unsplash.com/600x400/?pyramids" alt="Pyramids">
+                <img src="https://source.unsplash.com/600x400/?egypt" alt="Scenery of Egypt">
             </div>
             <div class="gallery-item">
-                <img src="https://source.unsplash.com/600x400/?egypt-nile" alt="Nile River">
+                <img src="https://source.unsplash.com/600x400/?pyramids" alt="Egyptian Pyramids">
             </div>
             <div class="gallery-item">
-                <img src="https://source.unsplash.com/600x400/?egypt-temples" alt="Temple">
+                <img src="https://source.unsplash.com/600x400/?nile" alt="Nile River">
             </div>
             <div class="gallery-item">
-                <img src="https://source.unsplash.com/600x400/?luxor" alt="Luxor">
+                <img src="https://source.unsplash.com/600x400/?luxor" alt="Luxor Temple">
             </div>
         </div>
     </section>
