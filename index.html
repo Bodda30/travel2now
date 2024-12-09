@@ -3,229 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover Egypt - Timeless Adventure</title>
+    <title>Explore Egypt - Gateway to Timeless Wonders</title>
     <style>
         /* General Styles */
         body {
             margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #1a1a1a; /* Dark theme */
-            color: #e6e6e6; /* Light text */
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #e6e6e6;
         }
 
         /* Navbar */
         nav {
-            background-color: #2b2b2b;
+            background-color: #222;
             position: sticky;
             top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+            padding: 1rem 2rem;
         }
         nav .logo {
             color: #50c878;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
         nav ul {
-            list-style: none;
             display: flex;
-            gap: 1.5rem;
+            list-style: none;
+            gap: 1rem;
         }
         nav ul li a {
             text-decoration: none;
             color: #e6e6e6;
-            font-size: 1rem;
-            transition: color 0.3s ease;
+            padding: 0.5rem;
         }
         nav ul li a:hover {
             color: #50c878;
         }
 
-        /* Hero Section */
+        /* Title Section */
         header {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('https://source.unsplash.com/1600x900/?egyptian-pyramids') no-repeat center center/cover;
+            height: 50vh;
+            background: url('https://source.unsplash.com/1600x900/?egypt') center center/cover no-repeat;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: #ffffff;
             text-align: center;
-            padding: 0 1rem;
+            padding: 1rem;
+            color: #fff;
         }
         header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin: 0;
-            line-height: 1.2;
-        }
-        header p {
-            font-size: 1.2rem;
-            margin: 1rem 0;
-            max-width: 700px;
-        }
-        .btn-primary {
-            padding: 0.8rem 1.5rem;
-            background-color: #50c878;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: background 0.3s ease;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
-        }
-        .btn-primary:hover {
-            background-color: #66d19e;
-        }
-
-        /* About Section */
-        section {
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        section h2 {
-            color: #50c878;
             font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-        section p {
-            font-size: 1rem;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
+            font-weight: 700;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
         }
 
-        /* Photo Gallery Section */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            padding: 2rem 0;
-        }
-        .gallery img {
-            width: 300px;
-            height: 200px;
-            object-fit: cover;
+        /* Carousel Section */
+        .carousel {
+            max-width: 80%;
+            margin: 2rem auto;
+            overflow: hidden;
+            position: relative;
             border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .gallery img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        .carousel-images {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+        .carousel-images img {
+            min-width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+        .carousel-buttons button {
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        .carousel-buttons button:hover {
+            background: #50c878;
         }
 
         /* Contact Section */
         #contact {
-            background-color: #2b2b2b;
-            padding: 4rem 2rem;
-            color: #e6e6e6;
-        }
-        #contact form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #1a1a1a;
+            background-color: #1a1a1a;
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
         }
-        #contact input, #contact textarea {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border: 1px solid #3a3a3a;
-            border-radius: 5px;
-            background-color: #292929;
-            color: #e6e6e6;
+        #contact a {
+            color: #50c878;
+            text-decoration: none;
         }
-        #contact input[type="submit"] {
-            background-color: #50c878;
-            border: none;
-            color: #ffffff;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        #contact input[type="submit"]:hover {
-            background-color: #66d19e;
+        #contact p {
+            margin: 0.5rem 0;
         }
 
         /* Footer */
         footer {
-            background-color: #121212;
-            padding: 1.5rem;
             text-align: center;
-            color: #808080;
-            font-size: 0.9rem;
-        }
-        footer a {
-            color: #50c878;
-            text-decoration: none;
+            padding: 1rem;
+            background: #222;
+            color: #ccc;
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav>
-        <div class="logo">Discover Egypt</div>
+        <div class="logo">Explore Egypt</div>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="?lang=ko">한국어</a></li>
+            <li><a href="?lang=ko" id="langToggle">한국어</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Title Section -->
     <header>
-        <h1>Discover Egypt - Timeless Adventure</h1>
-        <p>Explore the land of Pharaohs with its breathtaking history, stunning landscapes, and timeless stories.</p>
-        <a href="#about" class="btn-primary">Start Your Journey</a>
+        <h1>Explore Egypt - Gateway to Timeless Wonders</h1>
     </header>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Egypt</h2>
-        <p>Immerse yourself in the rich culture and history of Egypt. From the iconic pyramids to the bustling cities, there's something for everyone.</p>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery">
-        <h2>Photo Gallery</h2>
-        <div class="gallery">
-            <img src="https://source.unsplash.com/300x200/?pyramids" alt="Pyramids">
-            <img src="https://source.unsplash.com/300x200/?nile" alt="Nile River">
-            <img src="https://source.unsplash.com/300x200/?cairo" alt="Cairo City">
-            <img src="https://source.unsplash.com/300x200/?temple" alt="Ancient Temples">
+    <!-- Carousel Section -->
+    <section class="carousel">
+        <div class="carousel-images" id="carouselTrack">
+            <img src="https://source.unsplash.com/800x400/?pyramids" alt="Pyramids">
+            <img src="https://source.unsplash.com/800x400/?nile" alt="Nile">
+            <img src="https://source.unsplash.com/800x400/?temples" alt="Temples">
+        </div>
+        <div class="carousel-buttons">
+            <button id="prevBtn">&#10094;</button>
+            <button id="nextBtn">&#10095;</button>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Us</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <input type="submit" value="Send">
-        </form>
         <p>WhatsApp: <a href="https://wa.me/20123456789" target="_blank">+20 123 456 789</a></p>
-        <p>KakaoTalk: <a href="https://kakaotalk.com" target="_blank">@DiscoverEgypt</a></p>
+        <p>KakaoTalk: <a href="https://kakaotalk.com" target="_blank">@ExploreEgypt</a></p>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Discover Egypt. Designed for travelers around the world.</p>
+        <p>&copy; 2024 Explore Egypt. Crafted for explorers worldwide.</p>
     </footer>
+
+    <script>
+        // Carousel Functionality
+        const carouselTrack = document.getElementById('carouselTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const images = document.querySelectorAll('.carousel-images img');
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const width = images[0].clientWidth;
+            carouselTrack.style.transform = `translateX(-${currentIndex * width}px)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            updateCarousel();
+        });
+
+        window.addEventListener('resize', updateCarousel);
+
+        // Language Toggle (Simulated)
+        const langToggle = document.getElementById('langToggle');
+        langToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Korean translation is under construction.');
+        });
+    </script>
 </body>
 </html>
