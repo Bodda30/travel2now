@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Egypt - Premium Travel</title>
+    <title>Discover Egypt - A Journey Beyond Time</title>
     <style>
         /* General Styles */
         body {
@@ -19,7 +19,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: #202020; /* Subtle dark gray */
+            background: #202020;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -34,13 +34,13 @@
             margin: 0;
         }
         nav ul li a {
-            color: #50c878; /* Emerald green for an elegant look */
+            color: #50c878;
             font-weight: bold;
             text-decoration: none;
             transition: color 0.3s;
         }
         nav ul li a:hover {
-            color: #66d19e; /* Brighter green hover */
+            color: #66d19e;
         }
 
         /* Header Section */
@@ -74,7 +74,7 @@
             text-align: center;
         }
         section h2 {
-            color: #50c878; /* Emerald green for section headers */
+            color: #50c878;
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
         }
@@ -85,7 +85,7 @@
             padding: 0.75rem 1.5rem;
             margin: 1rem 0;
             color: #ffffff;
-            background: #50c878; /* Emerald green button */
+            background: #50c878;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
@@ -96,27 +96,43 @@
             transform: scale(1.05);
         }
 
-        /* Photo Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 0 auto;
-            max-width: 1200px;
-        }
-        .gallery-item {
-            position: relative;
+        /* Carousel Styles */
+        .carousel {
+            max-width: 800px;
+            margin: 0 auto 4rem;
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s;
+            position: relative;
         }
-        .gallery-item img {
+        .carousel img {
             width: 100%;
-            object-fit: cover;
+            display: block;
         }
-        .gallery-item:hover {
-            transform: translateY(-10px);
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-button {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+        }
+        .carousel-button:hover {
+            background: rgba(0, 0, 0, 0.8);
         }
 
         /* Contact Section */
@@ -155,6 +171,15 @@
         #contact input[type="submit"]:hover {
             background-color: #66d19e;
         }
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .contact-info a {
+            color: #50c878;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
         /* Responsive Design */
         @media screen and (max-width: 768px) {
@@ -170,18 +195,19 @@
 <body>
     <!-- Navbar -->
     <nav>
-        <div>Explore Egypt</div>
+        <div>Discover Egypt</div>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="?lang=ko">한국어</a></li>
         </ul>
     </nav>
 
     <!-- Header -->
     <header>
-        <h1>Explore Egypt</h1>
-        <p>Discover the magic of Egypt with a journey through its timeless wonders and breathtaking landscapes.</p>
+        <h1>Discover Egypt - A Journey Beyond Time</h1>
+        <p>Explore Egypt's enchanting blend of ancient history and modern charm. Let the adventure begin!</p>
     </header>
 
     <!-- About Section -->
@@ -194,18 +220,15 @@
     <!-- Gallery Section -->
     <section id="gallery">
         <h2>Photo Gallery</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://source.unsplash.com/600x400/?pyramids" alt="Pyramids of Giza">
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="https://source.unsplash.com/800x400/?pyramids" alt="Pyramids of Giza">
+                <img src="https://source.unsplash.com/800x400/?nile" alt="Nile River">
+                <img src="https://source.unsplash.com/800x400/?temple" alt="Egyptian Temples">
             </div>
-            <div class="gallery-item">
-                <img src="https://source.unsplash.com/600x400/?nile" alt="Nile River">
-            </div>
-            <div class="gallery-item">
-                <img src="https://source.unsplash.com/600x400/?temple" alt="Egyptian Temples">
-            </div>
-            <div class="gallery-item">
-                <img src="https://source.unsplash.com/600x400/?desert" alt="Egyptian Desert">
+            <div class="carousel-controls">
+                <button class="carousel-button" id="prev">⟨</button>
+                <button class="carousel-button" id="next">⟩</button>
             </div>
         </div>
     </section>
@@ -219,6 +242,35 @@
             <textarea placeholder="Your Message" rows="5" required></textarea>
             <input type="submit" value="Send Message">
         </form>
+        <div class="contact-info">
+            <p>WhatsApp: <a href="https://wa.me/20123456789" target="_blank">+20 123 456 789</a></p>
+            <p>KakaoTalk: <a href="https://www.kakaotalk.com" target="_blank">@discoveregypt</a></p>
+        </div>
     </section>
+
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const prevButton = document.querySelector('#prev');
+        const nextButton = document.querySelector('#next');
+        const images = document.querySelectorAll('.carousel img');
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const width = images[0].clientWidth;
+            track.style.transform = `translateX(-${currentIndex * width}px)`;
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            updateCarousel();
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            updateCarousel();
+        });
+
+        window.addEventListener('resize', updateCarousel);
+    </script>
 </body>
 </html>
