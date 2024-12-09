@@ -3,33 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover Egypt - Naver Blog Theme</title>
+    <title>Discover Egypt - Calm & Professional</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* General Styling: Naver Blog Theme */
+        /* General Styling */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #F9F9F9;
+            background: #F3F4F6; /* Soft gray background */
             color: #333;
         }
 
         header {
-            background: #1EC800;
+            background: #4CAF50; /* Muted green */
             color: #fff;
             text-align: center;
-            padding: 30px 20px;
-            border-bottom: 5px solid #eee;
+            padding: 40px 20px;
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
         }
 
         header p {
             font-size: 1.2rem;
-            color: #f5f5f5;
+            font-weight: 300;
         }
 
         /* Navigation Bar */
@@ -37,14 +37,13 @@
             display: flex;
             justify-content: center;
             background: #fff;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #e0e0e0;
             padding: 10px;
         }
         nav a {
             margin: 0 15px;
-            color: #1EC800;
+            color: #4CAF50;
             text-decoration: none;
-            font-weight: bold;
             font-size: 1.1rem;
         }
         nav a:hover {
@@ -56,9 +55,10 @@
             padding: 40px 20px;
             background: #fff;
             text-align: center;
+            animation: fadeIn 1s ease-in;
         }
         #about h2 {
-            color: #1EC800;
+            color: #4CAF50;
             margin-bottom: 20px;
         }
         #about p {
@@ -67,35 +67,34 @@
             line-height: 1.6;
         }
 
-        /* Categories Section */
-        #categories {
+        /* Gallery Section */
+        #gallery {
             padding: 40px 20px;
-            background: #f4f4f4;
+            background: #f9f9f9;
         }
-        .category-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+        #gallery h2 {
             text-align: center;
+            margin-bottom: 20px;
+            color: #4CAF50;
         }
-        .category {
-            background: #fff;
-            border: 1px solid #ddd;
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px;
+            scroll-snap-type: x mandatory;
+        }
+        .carousel img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
             border-radius: 10px;
-            padding: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            scroll-snap-align: center;
+            transition: transform 0.3s ease;
         }
-        .category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        .category h3 {
-            margin-bottom: 10px;
-            color: #1EC800;
-        }
-        .category p {
-            font-size: 0.9rem;
-            color: #666;
+        .carousel img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         /* Contact Section */
@@ -106,13 +105,13 @@
         }
         #contact h2 {
             margin-bottom: 20px;
-            color: #1EC800;
+            color: #4CAF50;
         }
         #contact p {
             margin: 5px 0;
         }
         #contact a {
-            color: #1EC800;
+            color: #4CAF50;
             text-decoration: none;
         }
 
@@ -120,17 +119,17 @@
         footer {
             text-align: center;
             padding: 15px;
-            background: #1EC800;
+            background: #4CAF50;
             color: #fff;
         }
 
         /* Translation Button */
         .translate-button {
-            margin: 20px auto;
             text-align: center;
+            margin: 20px 0;
         }
         .translate-button button {
-            background: #1EC800;
+            background: #4CAF50;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -139,19 +138,37 @@
             cursor: pointer;
         }
         .translate-button button:hover {
-            background: #16A300;
+            background: #3E8C41;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .carousel img {
+                width: 100%;
+                height: auto;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Discover Egypt</h1>
-        <p>Your Gateway to Exploring the Wonders of Egypt</p>
+        <p>Your Gateway to Timeless Wonders</p>
     </header>
 
     <nav>
         <a href="#about">About</a>
-        <a href="#categories">Categories</a>
+        <a href="#gallery">Gallery</a>
         <a href="#contact">Contact Us</a>
     </nav>
 
@@ -159,30 +176,18 @@
     <section id="about">
         <h2>About Us</h2>
         <p>
-            Discover Egypt is your ultimate guide to exploring the beauty, culture, and history of Egypt. Whether you're interested in ancient monuments, bustling cities, or serene deserts, we've got you covered. 
+            Discover Egypt offers you the ultimate guide to exploring the beauty and history of Egypt. From majestic pyramids to bustling cities and serene beaches, our mission is to help you experience the wonders of Egypt like never before.
         </p>
     </section>
 
-    <!-- Categories Section -->
-    <section id="categories">
-        <h2>Explore Categories</h2>
-        <div class="category-list">
-            <div class="category">
-                <h3>Historical Tours</h3>
-                <p>Explore the pyramids, temples, and more!</p>
-            </div>
-            <div class="category">
-                <h3>City Tours</h3>
-                <p>Discover bustling cities like Cairo and Luxor.</p>
-            </div>
-            <div class="category">
-                <h3>Adventure Trips</h3>
-                <p>Go on thrilling desert safaris and more.</p>
-            </div>
-            <div class="category">
-                <h3>Luxury Packages</h3>
-                <p>Experience Egypt in comfort and style.</p>
-            </div>
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="carousel">
+            <img src="https://source.unsplash.com/300x200/?desert" alt="Desert">
+            <img src="https://source.unsplash.com/300x200/?pyramids" alt="Pyramids">
+            <img src="https://source.unsplash.com/300x200/?nile" alt="Nile River">
+            <img src="https://source.unsplash.com/300x200/?egypt" alt="Egypt Landscape">
         </div>
     </section>
 
