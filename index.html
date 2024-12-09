@@ -11,12 +11,12 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #F3F4F6;
-            color: #333;
+            background: #222;
+            color: #fff;
         }
 
         header {
-            background: #4CAF50;
+            background: linear-gradient(to bottom, #4CAF50, #2E7D32);
             color: #fff;
             text-align: center;
             padding: 40px 20px;
@@ -36,31 +36,34 @@
         nav {
             display: flex;
             justify-content: center;
-            background: #fff;
-            border-bottom: 1px solid #e0e0e0;
+            background: #333;
+            border-bottom: 1px solid #444;
             padding: 10px;
         }
+
         nav a {
             margin: 0 15px;
             color: #4CAF50;
             text-decoration: none;
             font-size: 1.1rem;
         }
+
         nav a:hover {
-            text-decoration: underline;
+            color: #fff;
         }
 
         /* About Section */
         #about {
             padding: 40px 20px;
-            background: #fff;
+            background: #282828;
             text-align: center;
-            animation: fadeIn 1s ease-in;
         }
+
         #about h2 {
             color: #4CAF50;
             margin-bottom: 20px;
         }
+
         #about p {
             max-width: 800px;
             margin: auto;
@@ -70,42 +73,71 @@
         /* Gallery Section */
         #gallery {
             padding: 40px 20px;
-            background: #f9f9f9;
-        }
-        #gallery h2 {
+            background: #333;
             text-align: center;
-            margin-bottom: 20px;
+        }
+
+        #gallery h2 {
             color: #4CAF50;
+            margin-bottom: 20px;
         }
+
         .carousel {
-            display: flex;
-            overflow: hidden;
             position: relative;
-            scroll-snap-type: x mandatory;
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
         }
+
         .carousel img {
             width: 100%;
-            height: 300px;
-            object-fit: cover;
-            transition: transform 0.5s ease, opacity 0.5s ease;
-            border-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .carousel-controls button {
+            background: #4CAF50;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .carousel-controls button:hover {
+            background: #388E3C;
         }
 
         /* Form Section */
         #trip-form {
             padding: 40px 20px;
-            background: #fff;
+            background: #282828;
             text-align: center;
         }
+
         #trip-form h2 {
             color: #4CAF50;
             margin-bottom: 20px;
         }
+
         #trip-form form {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+
         #trip-form input,
         #trip-form textarea,
         #trip-form select {
@@ -113,9 +145,12 @@
             max-width: 400px;
             padding: 10px;
             margin: 10px 0;
-            border: 1px solid #ccc;
+            border: 1px solid #444;
             border-radius: 5px;
+            background: #333;
+            color: white;
         }
+
         #trip-form button {
             background: #4CAF50;
             color: #fff;
@@ -125,8 +160,9 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         #trip-form button:hover {
-            background: #3E8C41;
+            background: #388E3C;
         }
 
         /* Footer */
@@ -162,7 +198,7 @@
     <section id="about">
         <h2>About Us</h2>
         <p>
-            Discover Egypt offers you the ultimate guide to exploring the beauty and history of Egypt. From majestic pyramids to bustling cities and serene beaches, our mission is to help you experience the wonders of Egypt like never before.
+            Discover Egypt offers the ultimate guide to exploring the beauty and history of Egypt. From majestic pyramids to serene beaches, our mission is to help you experience the wonders of Egypt.
         </p>
     </section>
 
@@ -170,9 +206,15 @@
     <section id="gallery">
         <h2>Gallery</h2>
         <div class="carousel">
-            <img src="https://source.unsplash.com/800x300/?desert" alt="Desert">
-            <img src="https://source.unsplash.com/800x300/?pyramids" alt="Pyramids">
-            <img src="https://source.unsplash.com/800x300/?nile" alt="Nile River">
+            <div class="carousel-wrapper">
+                <img src="https://source.unsplash.com/800x400/?desert" alt="Desert">
+                <img src="https://source.unsplash.com/800x400/?pyramids" alt="Pyramids">
+                <img src="https://source.unsplash.com/800x400/?nile" alt="Nile River">
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button id="prev">Previous</button>
+            <button id="next">Next</button>
         </div>
     </section>
 
@@ -205,14 +247,20 @@
     </footer>
 
     <script>
-        // Smooth Photo Transitions
-        const carousel = document.querySelector('.carousel');
-        let offset = 0;
-        setInterval(() => {
-            offset -= 800;
-            if (Math.abs(offset) >= 2400) offset = 0;
-            carousel.style.transform = `translateX(${offset}px)`;
-        }, 3000);
+        const wrapper = document.querySelector('.carousel-wrapper');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+        let currentIndex = 0;
+
+        next.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % 3; 
+            wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
+
+        prev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + 3) % 3;
+            wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
     </script>
 </body>
 </html>
