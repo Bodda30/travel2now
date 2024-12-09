@@ -187,12 +187,16 @@
         <p>Your Gateway to Timeless Wonders</p>
     </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#trip-form">Plan Your Trip</a>
-        <a href="#contact">Contact Us</a>
-    </nav>
+    <!-- Header -->
+<nav>
+  <ul>
+    <li><a href="#about us">About Us</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact us">Contact US</a></li>
+    <li><a href="#plan your trip">Plan your trip</a></li>
+  </ul>
+</nav>
+
 
     <!-- About Section -->
     <section id="about">
@@ -261,6 +265,16 @@
             currentIndex = (currentIndex - 1 + 3) % 3;
             wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
         });
-    </script>
+   // Smooth Scroll Effect for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+}); 
+  </script>
 </body>
 </html>
