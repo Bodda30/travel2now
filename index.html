@@ -3,72 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover Egypt - A Journey Beyond Time</title>
+    <title>Discover Egypt - Timeless Adventure</title>
     <style>
         /* General Styles */
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212; /* Dark background */
-            color: #e0e0e0; /* Light text for readability */
+            font-family: 'Roboto', sans-serif;
+            background-color: #1a1a1a; /* Dark theme */
+            color: #e6e6e6; /* Light text */
         }
 
         /* Navbar */
         nav {
-            position: fixed;
+            background-color: #2b2b2b;
+            position: sticky;
             top: 0;
-            left: 0;
             width: 100%;
-            background: #202020;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
             z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        nav .logo {
+            color: #50c878;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         nav ul {
             list-style: none;
             display: flex;
             gap: 1.5rem;
-            margin: 0;
         }
         nav ul li a {
-            color: #50c878;
-            font-weight: bold;
             text-decoration: none;
-            transition: color 0.3s;
+            color: #e6e6e6;
+            font-size: 1rem;
+            transition: color 0.3s ease;
         }
         nav ul li a:hover {
-            color: #66d19e;
+            color: #50c878;
         }
 
-        /* Header Section */
+        /* Hero Section */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?egypt') no-repeat center center/cover;
             height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://source.unsplash.com/1600x900/?egyptian-pyramids') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
             color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 0 1rem;
         }
         header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 2px;
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
         }
         header p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            margin: 1rem 0;
             max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.8;
-            margin-top: 1rem;
+        }
+        .btn-primary {
+            padding: 0.8rem 1.5rem;
+            background-color: #50c878;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        .btn-primary:hover {
+            background-color: #66d19e;
         }
 
-        /* Section Styles */
+        /* About Section */
         section {
             padding: 4rem 2rem;
             text-align: center;
@@ -78,124 +98,86 @@
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
         }
-
-        /* Button Styles */
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            margin: 1rem 0;
-            color: #ffffff;
-            background: #50c878;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s ease, transform 0.2s;
-        }
-        .btn:hover {
-            background: #66d19e;
-            transform: scale(1.05);
+        section p {
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
-        /* Carousel Styles */
-        .carousel {
-            max-width: 800px;
-            margin: 0 auto 4rem;
-            overflow: hidden;
+        /* Photo Gallery Section */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+        .gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
             border-radius: 10px;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
-            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .carousel img {
-            width: 100%;
-            display: block;
-        }
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .carousel-controls {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-        .carousel-button {
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-            font-size: 1.2rem;
-            transition: background 0.3s;
-        }
-        .carousel-button:hover {
-            background: rgba(0, 0, 0, 0.8);
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
         }
 
         /* Contact Section */
         #contact {
-            background: #202020;
-            color: #e0e0e0;
+            background-color: #2b2b2b;
             padding: 4rem 2rem;
+            color: #e6e6e6;
         }
         #contact form {
             max-width: 600px;
             margin: 0 auto;
-            background: #292929;
+            background: #1a1a1a;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
         }
         #contact input, #contact textarea {
             width: 100%;
             padding: 1rem;
             margin-bottom: 1rem;
-            border: none;
+            border: 1px solid #3a3a3a;
             border-radius: 5px;
-            background: #202020;
-            color: #e0e0e0;
-            font-size: 1rem;
-        }
-        #contact input::placeholder, #contact textarea::placeholder {
-            color: #a0a0a0;
+            background-color: #292929;
+            color: #e6e6e6;
         }
         #contact input[type="submit"] {
             background-color: #50c878;
+            border: none;
+            color: #ffffff;
+            font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
         #contact input[type="submit"]:hover {
             background-color: #66d19e;
         }
-        .contact-info {
+
+        /* Footer */
+        footer {
+            background-color: #121212;
+            padding: 1.5rem;
             text-align: center;
-            margin-top: 2rem;
+            color: #808080;
+            font-size: 0.9rem;
         }
-        .contact-info a {
+        footer a {
             color: #50c878;
             text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-            header p {
-                font-size: 1.2rem;
-            }
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav>
-        <div>Discover Egypt</div>
+        <div class="logo">Discover Egypt</div>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#gallery">Gallery</a></li>
@@ -204,32 +186,27 @@
         </ul>
     </nav>
 
-    <!-- Header -->
+    <!-- Hero Section -->
     <header>
-        <h1>Discover Egypt - A Journey Beyond Time</h1>
-        <p>Explore Egypt's enchanting blend of ancient history and modern charm. Let the adventure begin!</p>
+        <h1>Discover Egypt - Timeless Adventure</h1>
+        <p>Explore the land of Pharaohs with its breathtaking history, stunning landscapes, and timeless stories.</p>
+        <a href="#about" class="btn-primary">Start Your Journey</a>
     </header>
 
     <!-- About Section -->
     <section id="about">
         <h2>About Egypt</h2>
-        <p>Egypt offers a blend of ancient history and modern charm. From the iconic Pyramids of Giza to the serene beaches of the Red Sea, every corner tells a story.</p>
-        <a href="#contact" class="btn">Plan Your Journey</a>
+        <p>Immerse yourself in the rich culture and history of Egypt. From the iconic pyramids to the bustling cities, there's something for everyone.</p>
     </section>
 
     <!-- Gallery Section -->
     <section id="gallery">
         <h2>Photo Gallery</h2>
-        <div class="carousel">
-            <div class="carousel-track">
-                <img src="https://source.unsplash.com/800x400/?pyramids" alt="Pyramids of Giza">
-                <img src="https://source.unsplash.com/800x400/?nile" alt="Nile River">
-                <img src="https://source.unsplash.com/800x400/?temple" alt="Egyptian Temples">
-            </div>
-            <div class="carousel-controls">
-                <button class="carousel-button" id="prev">⟨</button>
-                <button class="carousel-button" id="next">⟩</button>
-            </div>
+        <div class="gallery">
+            <img src="https://source.unsplash.com/300x200/?pyramids" alt="Pyramids">
+            <img src="https://source.unsplash.com/300x200/?nile" alt="Nile River">
+            <img src="https://source.unsplash.com/300x200/?cairo" alt="Cairo City">
+            <img src="https://source.unsplash.com/300x200/?temple" alt="Ancient Temples">
         </div>
     </section>
 
@@ -240,37 +217,15 @@
             <input type="text" placeholder="Your Name" required>
             <input type="email" placeholder="Your Email" required>
             <textarea placeholder="Your Message" rows="5" required></textarea>
-            <input type="submit" value="Send Message">
+            <input type="submit" value="Send">
         </form>
-        <div class="contact-info">
-            <p>WhatsApp: <a href="https://wa.me/20123456789" target="_blank">+20 123 456 789</a></p>
-            <p>KakaoTalk: <a href="https://www.kakaotalk.com" target="_blank">@discoveregypt</a></p>
-        </div>
+        <p>WhatsApp: <a href="https://wa.me/20123456789" target="_blank">+20 123 456 789</a></p>
+        <p>KakaoTalk: <a href="https://kakaotalk.com" target="_blank">@DiscoverEgypt</a></p>
     </section>
 
-    <script>
-        const track = document.querySelector('.carousel-track');
-        const prevButton = document.querySelector('#prev');
-        const nextButton = document.querySelector('#next');
-        const images = document.querySelectorAll('.carousel img');
-        let currentIndex = 0;
-
-        function updateCarousel() {
-            const width = images[0].clientWidth;
-            track.style.transform = `translateX(-${currentIndex * width}px)`;
-        }
-
-        prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-            updateCarousel();
-        });
-
-        nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-            updateCarousel();
-        });
-
-        window.addEventListener('resize', updateCarousel);
-    </script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Discover Egypt. Designed for travelers around the world.</p>
+    </footer>
 </body>
 </html>
