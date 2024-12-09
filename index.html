@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover Egypt - Explore the Wonders</title>
+    <title>Discover Egypt - Gateway to Wonders</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         /* General Styling */
@@ -45,17 +45,6 @@
         }
         nav a:hover {
             color: #ffb400;
-        }
-
-        /* Section Styling */
-        section {
-            padding: 40px 20px;
-        }
-        section h2 {
-            font-size: 2rem;
-            color: #FFD700;
-            text-align: center;
-            margin-bottom: 20px;
         }
 
         /* Gallery */
@@ -209,35 +198,75 @@
             <img src="https://source.unsplash.com/800x600/?nile" alt="Nile River">
         </div>
     </section>
+    
     <section id="cities">
-        <h2>Popular Cities</h2>
+        <h2>Cities</h2>
         <div class="city-list">
             <div class="city">
                 <h3>Cairo</h3>
-                <p>Explore the bustling capital of Egypt, home to ancient wonders and modern attractions.</p>
+                <p>Explore the heart of Egypt, home to the iconic Pyramids of Giza and vibrant culture.</p>
+            </div>
+            <div class="city">
+                <h3>Alexandria</h3>
+                <p>Discover the Mediterranean charm, from ancient libraries to scenic seafronts.</p>
             </div>
             <div class="city">
                 <h3>Luxor</h3>
-                <p>Discover the "world's greatest open-air museum," filled with temples and tombs.</p>
+                <p>Step into the Valley of the Kings and immerse yourself in ancient history.</p>
+            </div>
+            <div class="city">
+                <h3>Sharm El Sheikh</h3>
+                <p>Relax by the Red Sea, famous for its beaches and diving adventures.</p>
             </div>
         </div>
     </section>
+
     <section id="contact">
         <h2>Contact Us</h2>
         <p>WhatsApp: <a href="https://wa.me/20123456789" target="_blank">+20 123 456 789</a></p>
-        <p>KakaoTalk: <a href="https://kakaotalk.com" target="_blank">DiscoverEgypt</a></p>
+        <p>KakaoTalk: <a href="https://kakaotalk.com" target="_blank">@DiscoverEgypt</a></p>
     </section>
+
     <section id="reviews">
-        <h2>Reviews</h2>
+        <h2>Testimonials</h2>
         <div class="reviews">
             <div class="review">
                 <h4>John Doe</h4>
-                <p>Amazing experience! Highly recommended!</p>
+                <p>"An unforgettable experience. Egypt is simply breathtaking!"</p>
+            </div>
+            <div class="review">
+                <h4>Jane Smith</h4>
+                <p>"From Cairo to Luxor, every moment was magical."</p>
             </div>
         </div>
     </section>
+
+    <section id="booking">
+        <h2>Book Your Adventure</h2>
+        <form class="booking-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="date" placeholder="Travel Date" required>
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <div class="translate-button">
+        <button id="translateButton">Translate to Korean</button>
+    </div>
+
     <footer>
         <p>&copy; 2024 Discover Egypt. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        // Language Translation
+        document.getElementById("translateButton").addEventListener("click", function () {
+            alert("Korean translation is now enabled!");
+        });
+    </script>
 </body>
 </html>
+
+    
