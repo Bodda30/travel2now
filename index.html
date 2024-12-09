@@ -3,42 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover Egypt - KakaoTalk Style</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Discover Egypt - Naver Blog Theme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* General Styling: KakaoTalk Theme */
+        /* General Styling: Naver Blog Theme */
         body {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #FEE500;
-            color: #3C1E1E;
+            background: #F9F9F9;
+            color: #333;
         }
+
         header {
-            background: #3C1E1E;
+            background: #1EC800;
             color: #fff;
             text-align: center;
-            padding: 50px 20px;
-            border-bottom: 5px solid #FEE500;
+            padding: 30px 20px;
+            border-bottom: 5px solid #eee;
         }
+
         header h1 {
             font-size: 2.5rem;
         }
+
         header p {
             font-size: 1.2rem;
-            color: #ccc;
+            color: #f5f5f5;
         }
 
         /* Navigation Bar */
         nav {
             display: flex;
             justify-content: center;
-            background: #3C1E1E;
+            background: #fff;
+            border-bottom: 1px solid #eee;
             padding: 10px;
         }
         nav a {
             margin: 0 15px;
-            color: #FEE500;
+            color: #1EC800;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
@@ -47,70 +51,76 @@
             text-decoration: underline;
         }
 
-        /* Carousel Section */
-        .carousel-container {
-            margin: 20px auto;
-            width: 90%;
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 500%;
-        }
-        .carousel img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .carousel-buttons {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-        .carousel-buttons button {
-            background: rgba(60, 30, 30, 0.7);
-            border: none;
-            color: #fff;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 50%;
-            transition: background 0.3s ease;
-        }
-        .carousel-buttons button:hover {
-            background: rgba(60, 30, 30, 0.9);
-        }
-
-        /* City Tours Section */
-        #cities {
-            padding: 20px;
+        /* About Section */
+        #about {
+            padding: 40px 20px;
+            background: #fff;
             text-align: center;
         }
-        .city-list {
+        #about h2 {
+            color: #1EC800;
+            margin-bottom: 20px;
+        }
+        #about p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        /* Categories Section */
+        #categories {
+            padding: 40px 20px;
+            background: #f4f4f4;
+        }
+        .category-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            gap: 20px;
+            text-align: center;
         }
-        .city {
+        .category {
             background: #fff;
-            padding: 15px;
+            border: 1px solid #ddd;
             border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .city h3 {
-            color: #3C1E1E;
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .category h3 {
+            margin-bottom: 10px;
+            color: #1EC800;
+        }
+        .category p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 40px 20px;
+            background: #fff;
+            text-align: center;
+        }
+        #contact h2 {
+            margin-bottom: 20px;
+            color: #1EC800;
+        }
+        #contact p {
+            margin: 5px 0;
+        }
+        #contact a {
+            color: #1EC800;
+            text-decoration: none;
         }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 15px;
-            background: #3C1E1E;
+            background: #1EC800;
             color: #fff;
         }
 
@@ -120,7 +130,7 @@
             text-align: center;
         }
         .translate-button button {
-            background: #3C1E1E;
+            background: #1EC800;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -129,51 +139,49 @@
             cursor: pointer;
         }
         .translate-button button:hover {
-            background: #4E312E;
+            background: #16A300;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Discover Egypt</h1>
-        <p>Explore Egypt's beauty with KakaoTalk style</p>
+        <p>Your Gateway to Exploring the Wonders of Egypt</p>
     </header>
 
     <nav>
-        <a href="#gallery">Gallery</a>
-        <a href="#cities">Cities</a>
+        <a href="#about">About</a>
+        <a href="#categories">Categories</a>
         <a href="#contact">Contact Us</a>
     </nav>
 
-    <!-- Carousel Section -->
-    <section id="gallery" class="carousel-container">
-        <div class="carousel" id="carousel">
-            <img src="https://source.unsplash.com/800x600/?pyramids" alt="Pyramids">
-            <img src="https://source.unsplash.com/800x600/?nile" alt="Nile River">
-            <img src="https://source.unsplash.com/800x600/?desert" alt="Desert">
-            <img src="https://source.unsplash.com/800x600/?cairo" alt="Cairo">
-        </div>
-        <div class="carousel-buttons">
-            <button id="prevBtn">&#8592;</button>
-            <button id="nextBtn">&#8594;</button>
-        </div>
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            Discover Egypt is your ultimate guide to exploring the beauty, culture, and history of Egypt. Whether you're interested in ancient monuments, bustling cities, or serene deserts, we've got you covered. 
+        </p>
     </section>
 
-    <!-- City Tours Section -->
-    <section id="cities">
-        <h2>City Tours</h2>
-        <div class="city-list">
-            <div class="city">
-                <h3>Cairo</h3>
-                <p>Experience the heart of Egypt, where history meets modernity.</p>
+    <!-- Categories Section -->
+    <section id="categories">
+        <h2>Explore Categories</h2>
+        <div class="category-list">
+            <div class="category">
+                <h3>Historical Tours</h3>
+                <p>Explore the pyramids, temples, and more!</p>
             </div>
-            <div class="city">
-                <h3>Luxor</h3>
-                <p>Step into the ancient world with incredible temples and tombs.</p>
+            <div class="category">
+                <h3>City Tours</h3>
+                <p>Discover bustling cities like Cairo and Luxor.</p>
             </div>
-            <div class="city">
-                <h3>Aswan</h3>
-                <p>Relax by the Nile and explore Nubian culture.</p>
+            <div class="category">
+                <h3>Adventure Trips</h3>
+                <p>Go on thrilling desert safaris and more.</p>
+            </div>
+            <div class="category">
+                <h3>Luxury Packages</h3>
+                <p>Experience Egypt in comfort and style.</p>
             </div>
         </div>
     </section>
@@ -194,23 +202,6 @@
     </footer>
 
     <script>
-        // Carousel Logic
-        const carousel = document.getElementById('carousel');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-
-        let index = 0;
-
-        prevBtn.addEventListener('click', () => {
-            index = (index > 0) ? index - 1 : 3;
-            carousel.style.transform = `translateX(-${index * 100}%)`;
-        });
-
-        nextBtn.addEventListener('click', () => {
-            index = (index < 3) ? index + 1 : 0;
-            carousel.style.transform = `translateX(-${index * 100}%)`;
-        });
-
         // Language Translation
         document.getElementById('translateButton').addEventListener('click', () => {
             alert("Switching to Korean!");
