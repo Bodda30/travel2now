@@ -3,151 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Egypt - Gateway to Timeless Wonders</title>
+    <title>Discover Egypt: The Land of Wonders</title>
     <style>
-        /* General Styles */
-        body {
+        /* Reset and Base Styles */
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
             font-family: 'Arial', sans-serif;
-            background-color: #121212; /* Dark background */
-            color: #e6e6e6;
+            background-color: #1e1e2e; /* Dark metallic theme */
+            color: #d4d4dc;
+            line-height: 1.6;
         }
 
         /* Navbar */
         nav {
-            background-color: #222;
+            background-color: #23232e;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            padding: 1rem 2rem;
         }
         nav .logo {
-            color: #50c878;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
+            color: #e63946; /* Attractive red */
         }
         nav ul {
-            display: flex;
             list-style: none;
-            gap: 1rem;
+            display: flex;
+            gap: 1.5rem;
         }
         nav ul li a {
             text-decoration: none;
-            color: #e6e6e6;
-            padding: 0.5rem;
+            color: #d4d4dc;
+            transition: color 0.3s;
         }
         nav ul li a:hover {
-            color: #50c878;
+            color: #e63946;
         }
 
-        /* Title Section */
+        /* Hero Section */
         header {
-            height: 50vh;
-            background: url('https://source.unsplash.com/1600x900/?egypt') center center/cover no-repeat;
+            height: 80vh;
+            background: url('https://source.unsplash.com/1920x1080/?egypt-desert') center/cover no-repeat;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 1rem;
             color: #fff;
         }
         header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            font-weight: bold;
             background: rgba(0, 0, 0, 0.5);
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+        }
+        header p {
+            margin-top: 1rem;
+            font-size: 1.5rem;
         }
 
-        /* Carousel Section */
-        .carousel {
-            max-width: 80%;
-            margin: 2rem auto;
-            overflow: hidden;
-            position: relative;
-            border-radius: 10px;
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: auto;
         }
-        .carousel-images {
-            display: flex;
-            transition: transform 0.3s ease-in-out;
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #e63946;
+            margin-bottom: 1.5rem;
         }
-        .carousel-images img {
-            min-width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-        .carousel-buttons {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
+
+        /* Tours Section */
+        #tours .city {
             display: flex;
             justify-content: space-between;
-            padding: 0 1rem;
+            margin-bottom: 2rem;
+            background-color: #2d2d3b;
+            border-radius: 10px;
+            overflow: hidden;
         }
-        .carousel-buttons button {
-            background: rgba(0, 0, 0, 0.7);
+        #tours .city img {
+            width: 50%;
+            object-fit: cover;
+        }
+        #tours .city .info {
+            padding: 1rem;
+            flex: 1;
             color: #fff;
-            border: none;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
         }
-        .carousel-buttons button:hover {
-            background: #50c878;
+        #tours .city .info h3 {
+            font-size: 1.8rem;
+            color: #e63946;
+        }
+
+        /* Gallery Section */
+        #gallery .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1rem;
+        }
+        #gallery .carousel img {
+            height: 300px;
+            width: 100%;
+            border-radius: 15px;
+            scroll-snap-align: start;
         }
 
         /* Contact Section */
         #contact {
-            background-color: #1a1a1a;
-            padding: 2rem;
             text-align: center;
         }
+        #contact p {
+            margin-bottom: 1rem;
+        }
         #contact a {
-            color: #50c878;
+            color: #e63946;
             text-decoration: none;
         }
-        #contact p {
-            margin: 0.5rem 0;
+        #contact a:hover {
+            text-decoration: underline;
         }
 
         /* Footer */
         footer {
+            background-color: #23232e;
             text-align: center;
             padding: 1rem;
-            background: #222;
-            color: #ccc;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #tours .city {
+                flex-direction: column;
+            }
+            #tours .city img {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav>
-        <div class="logo">Explore Egypt</div>
+        <div class="logo">Discover Egypt</div>
         <ul>
             <li><a href="#about">About</a></li>
+            <li><a href="#tours">Tours</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="?lang=ko" id="langToggle">한국어</a></li>
+            <li><a href="#" id="translateButton">한국어</a></li>
         </ul>
     </nav>
 
-    <!-- Title Section -->
+    <!-- Hero Section -->
     <header>
-        <h1>Explore Egypt - Gateway to Timeless Wonders</h1>
+        <h1>Discover Egypt: The Land of Wonders</h1>
+        <p>Your ultimate guide to explore timeless treasures</p>
     </header>
 
-    <!-- Carousel Section -->
-    <section class="carousel">
-        <div class="carousel-images" id="carouselTrack">
-            <img src="https://source.unsplash.com/800x400/?pyramids" alt="Pyramids">
-            <img src="https://source.unsplash.com/800x400/?nile" alt="Nile">
-            <img src="https://source.unsplash.com/800x400/?temples" alt="Temples">
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Egypt</h2>
+        <p>
+            Egypt is a land of rich history, stunning landscapes, and vibrant culture. From the mighty pyramids to the serene Nile River,
+            this land of wonders promises an unforgettable journey.
+        </p>
+    </section>
+
+    <!-- Tours Section -->
+    <section id="tours">
+        <h2>Featured Tours</h2>
+        <div class="city">
+            <img src="https://source.unsplash.com/800x600/?giza" alt="Giza">
+            <div class="info">
+                <h3>Giza</h3>
+                <p>Explore the majestic pyramids and the iconic Sphinx, the wonders of ancient Egypt.</p>
+            </div>
         </div>
-        <div class="carousel-buttons">
-            <button id="prevBtn">&#10094;</button>
-            <button id="nextBtn">&#10095;</button>
+        <div class="city">
+            <img src="https://source.unsplash.com/800x600/?luxor" alt="Luxor">
+            <div class="info">
+                <h3>Luxor</h3>
+                <p>Discover the Valley of the Kings and the grand temples that tell stories of ancient civilizations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="carousel">
+            <img src="https://source.unsplash.com/800x600/?desert" alt="Desert">
+            <img src="https://source.unsplash.com/800x600/?cairo" alt="Cairo">
+            <img src="https://source.unsplash.com/800x600/?redsea" alt="Red Sea">
         </div>
     </section>
 
@@ -155,44 +216,18 @@
     <section id="contact">
         <h2>Contact Us</h2>
         <p>WhatsApp: <a href="https://wa.me/20123456789" target="_blank">+20 123 456 789</a></p>
-        <p>KakaoTalk: <a href="https://kakaotalk.com" target="_blank">@ExploreEgypt</a></p>
+        <p>KakaoTalk: <a href="https://kakaotalk.com" target="_blank">@DiscoverEgypt</a></p>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Explore Egypt. Crafted for explorers worldwide.</p>
+        <p>&copy; 2024 Discover Egypt. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Carousel Functionality
-        const carouselTrack = document.getElementById('carouselTrack');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const images = document.querySelectorAll('.carousel-images img');
-        let currentIndex = 0;
-
-        function updateCarousel() {
-            const width = images[0].clientWidth;
-            carouselTrack.style.transform = `translateX(-${currentIndex * width}px)`;
-        }
-
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-            updateCarousel();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-            updateCarousel();
-        });
-
-        window.addEventListener('resize', updateCarousel);
-
-        // Language Toggle (Simulated)
-        const langToggle = document.getElementById('langToggle');
-        langToggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Korean translation is under construction.');
+        // Language Translation
+        document.getElementById("translateButton").addEventListener("click", function () {
+            alert("Korean translation will be added soon!");
         });
     </script>
 </body>
