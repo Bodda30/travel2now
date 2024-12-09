@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover Egypt - Calm & Professional</title>
+    <title>Discover Egypt - Plan Your Trip</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         /* General Styling */
@@ -11,12 +11,12 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #F3F4F6; /* Soft gray background */
+            background: #F3F4F6;
             color: #333;
         }
 
         header {
-            background: #4CAF50; /* Muted green */
+            background: #4CAF50;
             color: #fff;
             text-align: center;
             padding: 40px 20px;
@@ -79,40 +79,54 @@
         }
         .carousel {
             display: flex;
-            overflow-x: auto;
-            gap: 20px;
-            padding: 10px;
+            overflow: hidden;
+            position: relative;
             scroll-snap-type: x mandatory;
         }
         .carousel img {
-            width: 300px;
-            height: 200px;
+            width: 100%;
+            height: 300px;
             object-fit: cover;
+            transition: transform 0.5s ease, opacity 0.5s ease;
             border-radius: 10px;
-            scroll-snap-align: center;
-            transition: transform 0.3s ease;
-        }
-        .carousel img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Contact Section */
-        #contact {
+        /* Form Section */
+        #trip-form {
             padding: 40px 20px;
             background: #fff;
             text-align: center;
         }
-        #contact h2 {
+        #trip-form h2 {
+            color: #4CAF50;
             margin-bottom: 20px;
-            color: #4CAF50;
         }
-        #contact p {
-            margin: 5px 0;
+        #trip-form form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        #contact a {
-            color: #4CAF50;
-            text-decoration: none;
+        #trip-form input,
+        #trip-form textarea,
+        #trip-form select {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #trip-form button {
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #trip-form button:hover {
+            background: #3E8C41;
         }
 
         /* Footer */
@@ -123,38 +137,9 @@
             color: #fff;
         }
 
-        /* Translation Button */
-        .translate-button {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .translate-button button {
-            background: #4CAF50;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        .translate-button button:hover {
-            background: #3E8C41;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .carousel img {
-                width: 100%;
                 height: auto;
             }
         }
@@ -169,6 +154,7 @@
     <nav>
         <a href="#about">About</a>
         <a href="#gallery">Gallery</a>
+        <a href="#trip-form">Plan Your Trip</a>
         <a href="#contact">Contact Us</a>
     </nav>
 
@@ -184,11 +170,27 @@
     <section id="gallery">
         <h2>Gallery</h2>
         <div class="carousel">
-            <img src="https://source.unsplash.com/300x200/?desert" alt="Desert">
-            <img src="https://source.unsplash.com/300x200/?pyramids" alt="Pyramids">
-            <img src="https://source.unsplash.com/300x200/?nile" alt="Nile River">
-            <img src="https://source.unsplash.com/300x200/?egypt" alt="Egypt Landscape">
+            <img src="https://source.unsplash.com/800x300/?desert" alt="Desert">
+            <img src="https://source.unsplash.com/800x300/?pyramids" alt="Pyramids">
+            <img src="https://source.unsplash.com/800x300/?nile" alt="Nile River">
         </div>
+    </section>
+
+    <!-- Trip Planning Form -->
+    <section id="trip-form">
+        <h2>Plan Your Trip</h2>
+        <form>
+            <select name="destination" required>
+                <option value="" disabled selected>Choose a Destination</option>
+                <option value="Cairo">Cairo</option>
+                <option value="Luxor">Luxor</option>
+                <option value="Aswan">Aswan</option>
+            </select>
+            <input type="date" name="travel-date" required>
+            <input type="number" name="travelers" placeholder="Number of Travelers" required>
+            <textarea name="message" placeholder="Additional Information"></textarea>
+            <button type="submit">Submit</button>
+        </form>
     </section>
 
     <!-- Contact Section -->
@@ -198,19 +200,19 @@
         <p>KakaoTalk: <a href="https://kakaotalk.com" target="_blank">@DiscoverEgypt</a></p>
     </section>
 
-    <div class="translate-button">
-        <button id="translateButton">Translate to Korean</button>
-    </div>
-
     <footer>
         <p>&copy; 2024 Discover Egypt. All rights reserved.</p>
     </footer>
 
     <script>
-        // Language Translation
-        document.getElementById('translateButton').addEventListener('click', () => {
-            alert("Switching to Korean!");
-        });
+        // Smooth Photo Transitions
+        const carousel = document.querySelector('.carousel');
+        let offset = 0;
+        setInterval(() => {
+            offset -= 800;
+            if (Math.abs(offset) >= 2400) offset = 0;
+            carousel.style.transform = `translateX(${offset}px)`;
+        }, 3000);
     </script>
 </body>
 </html>
