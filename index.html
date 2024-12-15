@@ -219,20 +219,21 @@
     </section>
 
     <section id="trip-form">
-        <h2>Plan Your Trip</h2>
-        <form>
-            <select name="destination" required>
-                <option value="" disabled selected>Choose a Destination</option>
-                <option value="Cairo">Cairo</option>
-                <option value="Luxor">Luxor</option>
-                <option value="Aswan">Aswan</option>
-            </select>
-            <input type="date" name="travel-date" required>
-            <input type="number" name="travelers" placeholder="Number of Travelers" required>
-            <textarea name="message" placeholder="Additional Information"></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </section>
+    <h2>Plan Your Trip</h2>
+    <form id="tripForm" method="POST" action="your-server-endpoint-to-send-email">
+        <select name="destination" required>
+            <option value="" disabled selected>Choose a Destination</option>
+            <option value="Cairo">Cairo</option>
+            <option value="Luxor">Luxor</option>
+            <option value="Aswan">Aswan</option>
+        </select>
+        <input type="date" name="travel-date" required>
+        <input type="number" name="travelers" placeholder="Number of Travelers" required>
+        <textarea name="message" placeholder="Additional Information"></textarea>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <button type="submit">Submit</button>
+    </form>
+</section>
 
     <section id="contact">
         <h2>Contact Us</h2>
