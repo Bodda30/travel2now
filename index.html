@@ -219,26 +219,48 @@
     </section>
 
     <section id="trip-form">
-        <h2>Plan Your Trip</h2>
-        <form>
-            <select name="destination" required>
-                <option value="" disabled selected>Choose a Destination</option>
-                <option value="Cairo">Cairo</option>
-                <option value="Luxor">Luxor</option>
-                <option value="Aswan">Aswan</option>
-            </select>
-            <input type="date" name="travel-date" required>
-            <input type="number" name="travelers" placeholder="Number of Travelers" required>
-            <textarea name="message" placeholder="Additional Information"></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </section>
+    <h2>Plan Your Trip</h2>
+    <form id="tripForm" method="POST" action="your-server-endpoint-to-send-email">
+        <select name="destination" required>
+            <option value="" disabled selected>Choose a Destination</option>
+            <option value="Cairo">Cairo</option>
+            <option value="Luxor">Luxor</option>
+            <option value="Aswan">Aswan</option>
+        </select>
+        <input type="date" name="travel-date" required>
+        <input type="number" name="travelers" placeholder="Number of Travelers" required>
+        <textarea name="message" placeholder="Additional Information"></textarea>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
 
     <section id="contact">
-        <h2>Contact Us</h2>
-        <p>WhatsApp: <a href="https://wa.me/20123456789" target="_blank">+20 123 456 789</a></p>
-        <p>KakaoTalk: <a href="https://kakaotalk.com" target="_blank">@DiscoverEgypt</a></p>
-    </section>
+    <h2>Contact Us</h2>
+    <form>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <p>Reach us on:</p>
+    <ul class="contact-links">
+        <li><a href="https://wa.me/20123456789" target="_blank">WhatsApp: +20 123 456 789</a></li>
+        <li><a href="https://kakaotalk.com" target="_blank">KakaoTalk: @DiscoverEgypt</a></li>
+        <li><a href="mailto:info@discoveregypt.com">Email: info@discoveregypt.com</a></li>
+    </ul>
+</section>
+
+<footer>
+    <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#trip-form">Plan Your Trip</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <p>&copy; 2024 Discover Egypt. All rights reserved.</p>
+</footer>
+
 
     <footer>
         <p>&copy; 2024 Discover Egypt. All rights reserved.</p>
