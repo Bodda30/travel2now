@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discover Egypt - Plan Your Trip</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         /* General Styling */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #1A1A1A;
+            background: #111;
             color: #fff;
         }
 
@@ -20,14 +20,13 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background: linear-gradient(to right, #006400, #2E8B57);
+            background: linear-gradient(to right, #2A5937, #1E3D27);
             color: white;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2rem;
-            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
         }
 
         nav {
@@ -35,22 +34,22 @@
         }
 
         nav a {
-            margin: 0 15px;
+            margin: 0 10px;
             color: #fff;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #FFD700;
+            color: #A3D9A5;
         }
 
         #translate-btn {
-            background: #FFD700;
+            background: #A3D9A5;
             border: none;
             color: #000;
-            padding: 5px 15px;
+            padding: 5px 10px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
@@ -59,21 +58,19 @@
         /* About Section */
         #about {
             padding: 40px 20px;
-            background: #333;
+            background: #222;
             text-align: center;
         }
 
         #about h2 {
-            color: #4CAF50;
+            color: #2A5937;
             margin-bottom: 20px;
-            font-size: 2rem;
         }
 
         #about p {
             max-width: 800px;
             margin: auto;
-            line-height: 1.8;
-            font-size: 1.1rem;
+            line-height: 1.6;
         }
 
         /* Gallery Section */
@@ -84,22 +81,21 @@
         }
 
         #gallery h2 {
-            color: #4CAF50;
+            color: #2A5937;
             margin-bottom: 20px;
-            font-size: 2rem;
         }
 
         .carousel {
             position: relative;
             overflow: hidden;
             width: 100%;
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .carousel img {
             width: 100%;
-            max-height: 350px;
+            max-height: 300px;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
@@ -116,77 +112,76 @@
         }
 
         .carousel-controls button {
-            background: #4CAF50;
+            background: #2A5937;
             border: none;
             color: white;
-            padding: 8px 15px;
+            padding: 5px 10px;
             margin: 0 5px;
             cursor: pointer;
             border-radius: 5px;
         }
 
         .carousel-controls button:hover {
-            background: #388E3C;
+            background: #1E3D27;
         }
 
-        /* Contact & Plan Your Trip Section */
-        #contact-form {
+        /* Form Section */
+        #trip-form {
             padding: 40px 20px;
-            background: #282828;
+            background: #111;
             text-align: center;
         }
 
-        #contact-form h2 {
-            color: #FFD700;
-            margin-bottom: 30px;
-            font-size: 2rem;
+        #trip-form h2 {
+            color: #A3D9A5;
+            margin-bottom: 20px;
         }
 
-        #contact-form h3 {
-            color: #4CAF50;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+        #trip-form form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        #contact-form select,
-        #contact-form input,
-        #contact-form textarea {
+        #trip-form input,
+        #trip-form textarea,
+        #trip-form select {
             width: 100%;
-            max-width: 500px;
-            padding: 12px;
-            margin: 15px 0;
+            max-width: 400px;
+            padding: 10px;
+            margin: 10px 0;
             border: 1px solid #444;
             border-radius: 5px;
-            background: #333;
+            background: #222;
             color: white;
-            font-size: 1rem;
         }
 
-        #contact-form button {
-            background: #FFD700;
+        #trip-form button {
+            background: #A3D9A5;
             color: #000;
             border: none;
-            padding: 12px 25px;
+            padding: 10px 20px;
             font-size: 1rem;
             border-radius: 5px;
             cursor: pointer;
-            width: 100%;
-            max-width: 500px;
-            margin-top: 20px;
         }
 
-        #contact-form button:hover {
-            background: #FFC107;
+        #trip-form button:hover {
+            background: #94C794;
         }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 15px;
-            background: #4CAF50;
+            background: #2A5937;
             color: #fff;
         }
 
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
@@ -195,7 +190,8 @@
         <nav>
             <a href="#about">About</a>
             <a href="#gallery">Gallery</a>
-            <a href="#contact-form">Contact & Plan Your Trip</a>
+            <a href="#contact">Contact</a>
+            <a href="#trip-form">Plan Your Trip</a>
         </nav>
         <button id="translate-btn">한국어</button>
     </header>
@@ -222,11 +218,9 @@
         </div>
     </section>
 
-    <section id="contact-form">
-        <h2>Contact Us & Plan Your Trip</h2>
-        <form id="tripForm" method="POST" action="your-server-endpoint-to-send-email">
-            <!-- Plan Your Trip Section -->
-            <h3>Plan Your Trip</h3>
+    <section id="trip-form">
+        <h2>Plan Your Trip</h2>
+        <form>
             <select name="destination" required>
                 <option value="" disabled selected>Choose a Destination</option>
                 <option value="Cairo">Cairo</option>
@@ -236,16 +230,14 @@
             <input type="date" name="travel-date" required>
             <input type="number" name="travelers" placeholder="Number of Travelers" required>
             <textarea name="message" placeholder="Additional Information"></textarea>
-            <input type="email" name="email" placeholder="Your Email" required>
-            
-            <!-- Contact Us Section -->
-            <h3>Contact Us</h3>
-            <p>WhatsApp: <a href="https://wa.me/20123456789" target="_blank">+20 123 456 789</a></p>
-            <p>KakaoTalk: <a href="https://kakaotalk.com" target="_blank">@DiscoverEgypt</a></p>
-            <textarea name="contact-message" placeholder="Leave a message for us"></textarea>
-            
             <button type="submit">Submit</button>
         </form>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>WhatsApp: <a href="https://wa.me/20123456789" target="_blank">+20 123 456 789</a></p>
+        <p>KakaoTalk: <a href="https://kakaotalk.com" target="_blank">@DiscoverEgypt</a></p>
     </section>
 
     <footer>
