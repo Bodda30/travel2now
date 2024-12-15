@@ -45,36 +45,56 @@
             color: #A3D9A5;
         }
 
-        /* About Section */
-        #about {
+        /* Language Button */
+        #language-toggle {
+            background: #A3D9A5;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: auto;
+        }
+
+        #language-toggle:hover {
+            background: #94C794;
+        }
+
+        /* Section Styles */
+        section {
             padding: 40px 20px;
             background: #222;
             text-align: center;
+            transition: opacity 0.5s ease-in-out;
         }
 
-        #about h2 {
+        section h2 {
             color: #2A5937;
             margin-bottom: 20px;
         }
 
-        #about p {
+        section p {
             max-width: 800px;
             margin: auto;
             line-height: 1.6;
         }
 
-        /* Gallery Section */
-        #gallery {
-            padding: 40px 20px;
-            background: #222;
-            text-align: center;
+        /* Hide Korean content by default */
+        .korean {
+            display: none;
         }
 
-        #gallery h2 {
-            color: #2A5937;
-            margin-bottom: 20px;
+        /* Show Korean content when activated */
+        .show-korean .korean {
+            display: block;
         }
 
+        .show-korean .english {
+            display: none;
+        }
+
+        /* Carousel Styles */
         .carousel {
             position: relative;
             overflow: hidden;
@@ -122,11 +142,6 @@
             text-align: center;
         }
 
-        #trip-form h2 {
-            color: #A3D9A5;
-            margin-bottom: 20px;
-        }
-
         #trip-form form {
             display: flex;
             flex-direction: column;
@@ -160,55 +175,44 @@
             background: #94C794;
         }
 
-        /* Contact Section */
-        #contact {
-            padding: 40px 20px;
-            background: #222;
-            text-align: center;
-        }
-
-        #contact h2 {
-            color: #2A5937;
-            margin-bottom: 20px;
-        }
-
-        #contact p {
-            color: white;
-        }
-
-        /* Footer */
         footer {
             text-align: center;
             padding: 15px;
             background: #2A5937;
             color: #fff;
         }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Discover Egypt</h1>
+        <h1 id="header-title">Discover Egypt</h1>
+        <button id="language-toggle">Change to Korean</button>
         <nav>
-            <a href="#about">About</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Contact</a>
-            <a href="#trip-form">Plan Your Trip</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#gallery" class="nav-link">Gallery</a>
+            <a href="#trip-form" class="nav-link">Plan Your Trip</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </nav>
     </header>
 
-    <section id="about">
+    <!-- About Section (English) -->
+    <section id="about" class="english">
         <h2>About Us</h2>
         <p>
             Discover Egypt offers the ultimate guide to exploring the beauty and history of Egypt. From majestic pyramids to serene beaches, our mission is to help you experience the wonders of Egypt.
         </p>
     </section>
 
-    <section id="gallery">
+    <!-- About Section (Korean) -->
+    <section id="about" class="korean">
+        <h2>우리에 대해</h2>
+        <p>
+            Discover Egypt는 이집트의 아름다움과 역사를 탐험할 수 있는 궁극적인 가이드를 제공합니다. 웅장한 피라미드부터 평화로운 해변까지, 우리의 임무는 여러분이 이집트의 경이로움을 경험할 수 있도록 돕는 것입니다.
+        </p>
+    </section>
+
+    <!-- Gallery Section (English) -->
+    <section id="gallery" class="english">
         <h2>Gallery</h2>
         <div class="carousel">
             <div class="carousel-wrapper">
@@ -223,7 +227,24 @@
         </div>
     </section>
 
-    <section id="trip-form">
+    <!-- Gallery Section (Korean) -->
+    <section id="gallery" class="korean">
+        <h2>갤러리</h2>
+        <div class="carousel">
+            <div class="carousel-wrapper">
+                <img src="https://source.unsplash.com/800x400/?desert" alt="사막">
+                <img src="https://source.unsplash.com/800x400/?pyramids" alt="피라미드">
+                <img src="https://source.unsplash.com/800x400/?nile" alt="나일강">
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button id="prev">↑</button>
+            <button id="next">↓</button>
+        </div>
+    </section>
+
+    <!-- Form Section (English) -->
+    <section id="trip-form" class="english">
         <h2>Plan Your Trip</h2>
         <form id="tripForm" method="POST" action="your-server-endpoint-to-send-email">
             <select name="destination" required>
@@ -240,8 +261,34 @@
         </form>
     </section>
 
-    <section id="contact">
+    <!-- Form Section (Korean) -->
+    <section id="trip-form" class="korean">
+        <h2>여행 계획</h2>
+        <form id="tripForm" method="POST" action="your-server-endpoint-to-send-email">
+            <select name="destination" required>
+                <option value="" disabled selected>목적지 선택</option>
+                <option value="Cairo">카이로</option>
+                <option value="Luxor">룩소르</option>
+                <option value="Aswan">아스완</option>
+            </select>
+            <input type="date" name="travel-date" required>
+            <input type="number" name="travelers" placeholder="여행자 수" required>
+            <textarea name="message" placeholder="추가 정보"></textarea>
+            <input type="email" name="email" placeholder="이메일" required>
+            <button type="submit">제출</button>
+        </form>
+    </section>
+
+    <!-- Contact Section (English) -->
+    <section id="contact" class="english">
         <h2>Contact Us</h2>
+        <p>WhatsApp: <a href="https://wa.me/20123456789" target="_blank">+20 123 456 789</a></p>
+        <p>KakaoTalk: <a href="https://kakaotalk.com" target="_blank">@DiscoverEgypt</a></p>
+    </section>
+
+    <!-- Contact Section (Korean) -->
+    <section id="contact" class="korean">
+        <h2>문의하기</h2>
         <p>WhatsApp: <a href="https://wa.me/20123456789" target="_blank">+20 123 456 789</a></p>
         <p>KakaoTalk: <a href="https://kakaotalk.com" target="_blank">@DiscoverEgypt</a></p>
     </section>
@@ -251,19 +298,44 @@
     </footer>
 
     <script>
+        // Language Toggle Logic
+        const languageToggle = document.getElementById('language-toggle');
+        const body = document.body;
+        languageToggle.addEventListener('click', function () {
+            body.classList.toggle('show-korean');
+            const isKorean = body.classList.contains('show-korean');
+            languageToggle.textContent = isKorean ? 'Change to English' : 'Change to Korean';
+            document.getElementById('header-title').textContent = isKorean ? '이집트 여행' : 'Discover Egypt';
+        });
+
+        // Smooth Scroll to Sections
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - 60, // Offset for header
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Carousel Logic
         const wrapper = document.querySelector('.carousel-wrapper');
         const prev = document.getElementById('prev');
         const next = document.getElementById('next');
         let currentIndex = 0;
 
         next.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % 3; 
-            wrapper.style.transform = `translateY(-${currentIndex * 100}%)`;
+            currentIndex = (currentIndex + 1) % 3;
+            wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
         });
 
         prev.addEventListener('click', () => {
             currentIndex = (currentIndex - 1 + 3) % 3;
-            wrapper.style.transform = `translateY(-${currentIndex * 100}%)`;
+            wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
         });
     </script>
 </body>
